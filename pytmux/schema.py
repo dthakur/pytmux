@@ -32,6 +32,9 @@ schema = {
                     },
                     'command': {
                         'type': 'string'
+                    },
+                    'directory': {
+                        'type': 'string'
                     }
                 }
             }

@@ -60,10 +60,11 @@ class Tmux(object):
         else:
             self.call('attach-session', '-t', self.session)
 
-    def new_window(self, number, name):
+    def new_window(self, number, name, subdir=None):
         extra_args = ()
         if self.directory is not None:
-            extra_args += ('-c', self.directory)
+            full_dir = os.path.join(self.directory, subdir) if subdir is not None else self.directory
+            extra_args += ('-c', full_dir)
         if name:
             extra_args += ('-n', name)
 

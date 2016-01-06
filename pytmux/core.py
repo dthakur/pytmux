@@ -42,7 +42,7 @@ def run_config(config):
 
         # Create windows
         for index, window in enumerate(settings['windows'], base_index):
-            tmux.new_window(index, window.get('name'))
+            tmux.new_window(index, window.get('name'), subdir=window.get('directory'))
             if 'command' in window:
                 tmux.send_keys(index, window['command'])
 

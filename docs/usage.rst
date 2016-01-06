@@ -57,6 +57,11 @@ means.
                "command": "emacs"
            },
            {
+               "name": "editor in subdir",
+               "command": "emacs",
+               "directory": "code-stuffs"
+           },
+           {
                "name": "some shell"
            },
            {
@@ -76,12 +81,19 @@ starting each window. It is optional, if it isn't provided then the current
 directory that pytmux is run from is used.
 
 After that you have ``windows`` which is the list of windows you want
-instantiated. Both of the properties (``name`` and ``command``) are optional. If
-you specify a ``name`` it will name the window that, without a ``name`` you'll
+instantiated. All the properties (``name``, ``command`` and ````directory``) are optional. 
+
+If you specify a ``name`` it will name the window that, without a ``name`` you'll
 get a window named using ``automatic-rename`` in tmux (which uses lets the
-program set the title). If you specify a ``command`` then that will be run in
-the window using ``send-keys``, without the ``command`` it will open your
-default shell. Without either, you'll get a default shell, in a window that uses
+program set the title).
+
+If you specify a ``command``, then that will be run in the window using ``send-keys``,
+without the ``command`` it will open your default shell.
+
+Without ``name`` or ``command``, you'll get a default shell, in a window that uses 
 ``automatic-rename``.
+
+If you specify a ``directory``, then that directory will be used as a subdirectory
+under the top-level ``directory``.
 
 .. _`principle of least astonishment`: http://en.wikipedia.org/wiki/Principle_of_least_astonishment
